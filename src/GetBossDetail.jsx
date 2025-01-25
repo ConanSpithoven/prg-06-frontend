@@ -1,12 +1,14 @@
 import React, {useState, useEffect} from 'react';
+import { useParams } from 'react-router';
 
 function BossItem() {
     const [boss, setBoss] = useState(null);
-
+    let { id } = useParams();
+    
     useEffect(() => {
         async function fetchBoss() {
             try {
-                const response = await fetch('http://85.215.154.12:3000/bosses/6726cdc5169564d9a23269fd', {
+                const response = await fetch(`http://85.215.154.12:3000/bosses/${id}`, {
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json',
@@ -29,6 +31,10 @@ function BossItem() {
                 <div>
                     <h1>{boss.item.name}</h1>
                     <p>{boss.item.weaknesses}</p>
+                    <p>{boss.item.strengths}</p>
+                    <p>{boss.item.damagetype}</p>
+                    <p>{boss.item.type}</p>
+                    <p>{boss.item.special}</p>
                 </div>
             ) : (
                 <p>Boss laden...</p>

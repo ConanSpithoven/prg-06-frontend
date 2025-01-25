@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Boss from './Boss.jsx';
 
-function BossList({bosslist, setBosslist}) {
-    
+function BossList({ bosslist, setBosslist }) {
     useEffect(() => {
         async function fetchBoss() {
             try {
@@ -14,7 +13,8 @@ function BossList({bosslist, setBosslist}) {
                     }
                 });
                 const data = await response.json();
-                setBosslist(data);
+                if (JSON.stringify(bosslist) === JSON.stringify(data.items)) return;
+                setBosslist(data.items);
             } catch (error) {
                 console.error('Fout bij het ophalen van het product:', error);
             }
@@ -28,8 +28,8 @@ function BossList({bosslist, setBosslist}) {
             {bosslist ? (
                 <div>
                     <ul key="bosslist" className="grid grid-cols-4 gap-4 content-around">
-                        {bosslist.items.map(item =>
-                            <Boss key={item._id} boss={item}/>
+                        {bosslist.map(item =>
+                            <Boss key={item._id} boss={item} />
                         )}
                     </ul>
                 </div>

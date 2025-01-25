@@ -1,32 +1,32 @@
 import {useState} from 'react';
 
-async function createBoss(formData, {changeBosslist}) {
-    try {
-        const requestOptions = {
-            method: 'POST',
-            headers: {
-                'Accept': '/',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                "name": formData.name,
-                "weaknesses": formData.weaknesses,
-                "strengths": formData.strengths,
-                "damageType": formData.damagetype,
-                "type": formData.type,
-                "special": formData.special
-            })
-        };
-        const response = await fetch('http://85.215.154.12:3000/bosses', requestOptions);
-
-        const data = await response.json();
-        changeBosslist(data.item);
-    } catch (error) {
-        console.error('Er is een fout opgetreden:', error);
-    }
-}
-
 function FormComponent({changeBosslist}) {
+    async function createBoss(formData, {changeBosslist}) {
+        try {
+            const requestOptions = {
+                method: 'POST',
+                headers: {
+                    'Accept': '/',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    "name": formData.name,
+                    "weaknesses": formData.weaknesses,
+                    "strengths": formData.strengths,
+                    "damageType": formData.damagetype,
+                    "type": formData.type,
+                    "special": formData.special
+                })
+            };
+            const response = await fetch('http://85.215.154.12:3000/bosses', requestOptions);
+    
+            const data = await response.json();
+            changeBosslist(data.item);
+        } catch (error) {
+            console.error('Er is een fout opgetreden:', error);
+        }
+    }
+    
     const [formData, setFormData] = useState({
         name: '',
         weaknesses: '',
