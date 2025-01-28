@@ -39,7 +39,7 @@ function BossItem() {
             const data = await response;
             navigate("/");
         } catch (error) {
-            console.error('Fout bij het ophalen van het product:', error);
+            console.error('Fout bij het verwijderen van het product:', error);
         }
     }
 
