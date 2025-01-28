@@ -33,7 +33,7 @@ export default function App() {
       },
       {
         path: "*",
-        element: <div>404 not found.</div>
+        element: <div class="bg-gray-900 border border-gray-800 rounded shadow p-2 flex-1 text-right md:text-center font-bold uppercase text-gray-400 text-2xl">404 not found.</div>
       }
     ]
   }])

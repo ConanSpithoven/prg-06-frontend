@@ -22,6 +22,7 @@ function BossItem() {
                 setBoss(data);
             } catch (error) {
                 console.error('Fout bij het ophalen van het product:', error);
+                navigate("/404");
             }
         }
 
