@@ -1,6 +1,8 @@
 import {useState} from 'react';
+import { useNavigate } from 'react-router';
 
 function FormComponent({changeBosslist}) {
+    const navigate = useNavigate();
     async function createBoss(formData, {changeBosslist}) {
         try {
             const requestOptions = {
@@ -13,7 +15,7 @@ function FormComponent({changeBosslist}) {
                     "name": formData.name,
                     "weaknesses": formData.weaknesses,
                     "strengths": formData.strengths,
-                    "damageType": formData.damagetype,
+                    "damageType": formData.damageType,
                     "type": formData.type,
                     "special": formData.special
                 })
@@ -22,6 +24,7 @@ function FormComponent({changeBosslist}) {
     
             const data = await response.json();
             changeBosslist(data.item);
+            navigate(`/boss/${data.item._id}`);
         } catch (error) {
             console.error('Er is een fout opgetreden:', error);
         }
@@ -51,10 +54,10 @@ function FormComponent({changeBosslist}) {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} class="bg-gray-900 border border-gray-800 rounded shadow p-2 flex-1 text-right md:text-center">
             <div>
-                <label htmlFor="name">Name:</label>
-                <input
+                <label htmlFor="name" class="font-bold text-gray-400">Name: </label>
+                <input className='bg-gray-800 border border-gray-700 rounded text-gray-200'
                     type="text"
                     id="name"
                     name="name"
@@ -63,8 +66,8 @@ function FormComponent({changeBosslist}) {
                 />
             </div>
             <div>
-                <label htmlFor="weaknesses">Weaknesses:</label>
-                <input
+                <label htmlFor="weaknesses" class="text-gray-400">Weaknesses: </label>
+                <input className='bg-gray-800 border border-gray-700 rounded text-gray-200'
                     type="weaknesses"
                     id="weaknesses"
                     name="weaknesses"
@@ -73,8 +76,8 @@ function FormComponent({changeBosslist}) {
                 />
             </div>
             <div>
-                <label htmlFor="strengths">Strengths:</label>
-                <input
+                <label htmlFor="strengths" class="text-gray-400">Strengths: </label>
+                <input className='bg-gray-800 border border-gray-700 rounded text-gray-200'
                     type="strengths"
                     id="strengths"
                     name="strengths"
@@ -83,18 +86,18 @@ function FormComponent({changeBosslist}) {
                 />
             </div>
             <div>
-                <label htmlFor="damagetype">Damage types:</label>
-                <input
-                    type="damagetype"
-                    id="damagetype"
-                    name="damagetype"
-                    value={formData.damagetype}
+                <label htmlFor="damageType" class="text-gray-400">Damage types: </label>
+                <input className='bg-gray-800 border border-gray-700 rounded text-gray-200'
+                    type="damageType"
+                    id="damageType"
+                    name="damageType"
+                    value={formData.damageType}
                     onChange={handleInputChange}
                 />
             </div>
             <div>
-                <label htmlFor="type">Type:</label>
-                <input
+                <label htmlFor="type" class="text-gray-400">Type: </label>
+                <input className='bg-gray-800 border border-gray-700 rounded text-gray-200'
                     type="type"
                     id="type"
                     name="type"
@@ -103,8 +106,8 @@ function FormComponent({changeBosslist}) {
                 />
             </div>
             <div>
-                <label htmlFor="special">Special:</label>
-                <input
+                <label htmlFor="special" class="text-gray-400">Special: </label>
+                <input className='bg-gray-800 border border-gray-700 rounded text-gray-200'
                     type="special"
                     id="special"
                     name="special"
@@ -112,7 +115,7 @@ function FormComponent({changeBosslist}) {
                     onChange={handleInputChange}
                 />
             </div>
-            <button type="submit">Send</button>
+            <button type="submit" className="bg-green-900 border border-green-800 rounded shadow p-1 flex-1 text-right md:text-center">Update</button>
         </form>
     );
 }

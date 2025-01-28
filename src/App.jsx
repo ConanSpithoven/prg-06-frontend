@@ -7,11 +7,11 @@ import Layout from './Layout.jsx';
 
 export default function App() {
   const [bosslist, setBosslist] = useState([]);
-  const [page, setPage] = useState(null)
+  const [page, setPage] = useState(null);
 
   const initBosslist = (newList) => {
     setBosslist(newList);
-   };
+  };
 
   const changeBosslist = (newBoss) => {
     setBosslist([...bosslist, newBoss]);
@@ -44,7 +44,6 @@ export default function App() {
   return (
     <>
     <main>
-      <h1 className="text-center text-2xl font-bold">Dark souls 1 and 2 bosses</h1>
       <section>
         <RouterProvider router={browserRouter} />
       </section>

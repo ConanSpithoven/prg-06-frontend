@@ -26,8 +26,8 @@ function BossList({ bosslist, setBosslist }) {
     return (
         <div>
             {bosslist ? (
-                <div>
-                    <ul key="bosslist" className="grid grid-cols-4 gap-4 content-around">
+                <div class="w-full px-4 md:px-0 md:mt-8 mb-16 text-gray-800 leading-normal">
+                    <ul key="bosslist" className="flex flex-wrap">
                         {bosslist.map(item =>
                             <Boss key={item._id} boss={item} />
                         )}
