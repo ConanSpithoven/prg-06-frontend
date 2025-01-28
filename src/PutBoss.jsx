@@ -19,8 +19,7 @@ function PutBoss({boss}) {
                 const response = await fetch(`http://85.215.154.12:3000/bosses/${id}`, {
                     method: 'GET',
                     headers: {
-                        'Accept': 'application/json',
-                        // en overige headers
+                        'Accept': 'application/json'
                     }
                 });
                 const data = await response.json();
