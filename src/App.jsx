@@ -33,13 +33,13 @@ export default function App() {
       },
       {
         path: "*",
-        element: <div class="bg-gray-900 border border-gray-800 rounded shadow p-2 flex-1 text-right md:text-center font-bold uppercase text-gray-400 text-2xl">404 not found.</div>
+        element: <div class="bg-gray-900 border border-gray-800 rounded shadow p-2 flex-1 text-right md:text-center font-bold uppercase text-gray-400 text-2xl">
+          404 not found.
+        </div>
       }
     ]
   }])
-    
-  //So, if you change the 'setBossList' below to 'changeBossList' so it actually gets called, it breaks.
-  //What it's supposed to do is update the list on frontside to display the newly posted item.
+
   return (
     <>
     <main>
