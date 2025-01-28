@@ -7,7 +7,6 @@ import Layout from './Layout.jsx';
 
 export default function App() {
   const [bosslist, setBosslist] = useState([]);
-  const [page, setPage] = useState(null);
 
   const initBosslist = (newList) => {
     setBosslist(newList);
