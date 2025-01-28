@@ -12,24 +12,6 @@ function PutBoss({boss}) {
     });
     let { id } = useParams();
     const navigate = useNavigate();
-    
-    useEffect(() => {
-        async function fetchBoss() {
-            try {
-                const response = await fetch(`http://85.215.154.12:3000/bosses/${id}`, {
-                    method: 'GET',
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                const data = await response.json();
-            } catch (error) {
-                console.error('Fout bij het ophalen van het product:', error);
-            }
-        }
-
-        fetchBoss();
-    }, []);
 
     async function putBoss(formData) {
         try {
