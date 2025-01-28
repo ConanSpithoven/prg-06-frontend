@@ -115,7 +115,7 @@ function FormComponent({changeBosslist}) {
                     onChange={handleInputChange}
                 />
             </div>
-            <button type="submit" className="bg-green-900 border border-green-800 rounded shadow p-1 flex-1 text-right md:text-center">Update</button>
+            <button type="submit" className="bg-green-900 border border-green-800 rounded shadow p-1 flex-1 text-right md:text-center">Create</button>
         </form>
     );
 }
